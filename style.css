@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Independence Square Architecture Project — Core Stylesheet
+   Independence Square Architecture Project — Complete Stylesheet
    ========================================================================== */
 
 :root {
@@ -117,6 +117,278 @@ body {
 
 .main-nav.nav-scrolled .mobile-hamburger span {
     background-color: var(--bg);
+}
+
+/* ==========================================================================
+   🎯 DEFINITIVE FULLSCREEN MENU STYLE — FINAL POLISH (BOCETO 3)
+   ========================================================================== */
+/* ==========================================================
+   MOBILE MENU
+   ========================================================== */
+
+.mobile-hamburger{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:8px;
+    width:42px;
+    height:42px;
+    flex-direction:column;
+    justify-content:center;
+    gap:6px;
+    z-index:10000;
+}
+
+.mobile-hamburger span{
+    display:block;
+    width:26px;
+    height:2px;
+    background:#fff;
+    transition:.3s;
+}
+
+.main-nav.nav-scrolled .mobile-hamburger span{
+    background:var(--bg);
+}
+
+/* =======================
+   FULLSCREEN MENU
+======================= */
+
+.mobile-fullscreen-menu{
+
+    position:fixed;
+
+    top:0;
+    left:-100%;
+
+    width:100%;
+    height:100vh;
+
+    background:#fff;
+
+    z-index:9999;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:32px;
+
+    transition:left .45s cubic-bezier(.16,1,.3,1);
+
+}
+
+.mobile-fullscreen-menu.popup-active{
+
+    left:0;
+
+}
+
+/* =======================
+   HEADER
+======================= */
+
+.mobile-menu-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:55px;
+
+}
+
+.menu-close-btn{
+
+    border:none;
+
+    background:none;
+
+    font-size:34px;
+
+    color:var(--accent);
+
+    cursor:pointer;
+
+    padding:0;
+
+    line-height:1;
+
+}
+
+.menu-brand-center{
+
+    font-family:var(--font-serif);
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:var(--accent);
+
+}
+
+/* =======================
+   CONTENT
+======================= */
+
+.mobile-menu-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+}
+
+/* =======================
+   MAIN LINKS
+======================= */
+
+.mobile-fullscreen-links{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.mobile-fullscreen-links li{
+
+    margin-bottom:16px;
+
+}
+
+.mobile-fullscreen-links a{
+
+    display:block;
+
+    font-family:var(--font-sans);
+
+    font-size:clamp(2.2rem,6vw,3.2rem);
+
+    font-weight:700;
+
+    line-height:1.15;
+
+    letter-spacing:-1px;
+
+    color:var(--accent);
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+.mobile-fullscreen-links a:hover{
+
+    color:var(--gold);
+
+}
+
+/* =======================
+   DIVIDER
+======================= */
+
+.menu-divider{
+
+    border:none;
+
+    border-top:1px solid #e8e8e8;
+
+    margin:40px 0 22px;
+
+}
+
+/* =======================
+   BOTTOM LINK
+======================= */
+
+.mobile-secondary-links{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.mobile-secondary-links a{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:var(--accent);
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.mobile-secondary-links .arrow{
+
+    color:var(--gold);
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.mobile-secondary-links a:hover .arrow{
+
+    transform:translateX(6px);
+
+}
+
+/* =======================
+   MOBILE ONLY
+======================= */
+
+@media (max-width:900px){
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+    .mobile-hamburger{
+
+        display:flex;
+
+    }
+
+}
+
+.mobile-hamburger{
+
+    transition:.3s;
+
+}
+
+.mobile-hamburger.hidden{
+
+    transform:scale(.7);
+
+    opacity:0;
+
+    pointer-events:none;
+
 }
 
 /* --- Hero Section --- */
@@ -312,7 +584,7 @@ body {
     border-top: 1px dashed rgba(4, 19, 52, 0.12);
 }
 
-.trail-stat {
+.trail-stats .trail-stat {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -756,7 +1028,7 @@ body {
     color: var(--surface);
 }
 
-/* 🎯 CONTROL DE ENCUADRE DE IMAGEN GLOBAL (AI & CSS Fix: Forzar fondo inferior) */
+/* 🎯 CONTROL DE ENCUADRE DE IMAGEN GLOBAL (AI Visual Fix) */
 .pathway-card-img, 
 .storefront-card img,
 .card-image-wrapper img,
@@ -1111,6 +1383,11 @@ body {
     height: 26px;
 }
 
+.detail-icon-box input,
+.detail-icon-box button {
+    display: none !important;
+}
+
 .detail-row-info h4 {
     font-family: var(--font-serif);
     color: var(--accent);
@@ -1306,7 +1583,7 @@ body {
     box-shadow: 0 8px 25px rgba(4, 19, 52, 0.08);
     transition: transform 0.3s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s;
     cursor: pointer;
-    will-change: transform, box-shadow;
+    will-change: transform;
 }
 
 .dir-card.hidden { display: none !important; }
@@ -1619,90 +1896,6 @@ body {
     transform: translateY(0);
 }
 
-/* --- Mobile Navigation Menu --- */
-.mobile-fullscreen-menu {
-    position: fixed;
-    top: 0; left: -100%; width: 100%; height: 100vh;
-    background-color: #ffffff;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    transition: left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    padding: 1.5rem 2rem;
-}
-
-.mobile-fullscreen-menu.popup-active { left: 0; }
-.mobile-menu-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 3.5rem;
-}
-
-.menu-close-btn {
-    background: none;
-    border: none;
-    font-size: 2.5rem;
-    color: var(--accent);
-    cursor: pointer;
-    font-weight: 300;
-}
-
-.menu-brand-center {
-    font-family: var(--font-serif);
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--accent);
-}
-
-.mobile-menu-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.mobile-main-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.mobile-main-links a {
-    font-family: var(--font-sans);
-    font-size: clamp(2rem, 7vw, 2.8rem);
-    font-weight: 600;
-    color: var(--accent);
-    text-decoration: none;
-}
-
-.menu-divider {
-    border: none;
-    border-top: 1px solid rgba(4, 19, 52, 0.1);
-    margin: 3rem 0 2rem 0;
-}
-
-.mobile-secondary-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-
-.mobile-secondary-links a {
-    font-family: var(--font-sans);
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--accent);
-    text-decoration: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.mobile-secondary-links .arrow { color: var(--gold); }
-
 /* --- Expandable Trail Details --- */
 .trail-toggle-btn {
     width: 100%;
@@ -1828,7 +2021,7 @@ footer strong { color: var(--gold); }
 
 @media (max-width: 992px) {
     .nav-links { display: none !important; }
-    .mobile-hamburger { display: flex; }
+    .mobile-hamburger { display: flex !important; }
     .main-nav { padding: 1.5rem 5% !important; background: rgba(4, 19, 52, 0.95) !important; }
     .metrics-bar { flex-direction: column; gap: 3rem; margin-top: 4rem; }
     .hero-section { padding: 10rem 6% 4rem; }
