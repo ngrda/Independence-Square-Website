@@ -1925,3 +1925,15 @@ footer strong { color: var(--gold); }
     .filter-bar { flex-direction: column; align-items: stretch; }
     .filter-btn { text-align: center; }
 }
+
+.ai-notice {
+    font-size: 0.78rem;
+    color: #a3b1cc;
+    opacity: 0.75;
+    margin-top: 0.8rem;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
