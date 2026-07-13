@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Independence Square Architecture Project — Core Stylesheet
+   ========================================================================== */
+
 :root {
     --bg: #f8f5ef;
     --surface: #ffffff;
@@ -22,7 +26,6 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
-    transition: all 1s var(--ease-out);
 }
 
 body {
@@ -86,6 +89,34 @@ body {
 
 .nav-links a:hover {
     color: var(--gold) !important;
+}
+
+/* --- Navigation Hamburger Baseline --- */
+.mobile-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1001;
+    padding: 8px;
+    width: 42px;
+    height: 38px;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-hamburger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background-color: var(--surface);
+    transition: all 0.3s var(--ease-out);
+}
+
+.main-nav.nav-scrolled .mobile-hamburger span {
+    background-color: var(--bg);
 }
 
 /* --- Hero Section --- */
@@ -188,7 +219,7 @@ body {
     border-top: 3px solid var(--gold);
     border-radius: 10px;
     box-shadow: 0 15px 35px rgba(4, 19, 52, 0.06);
-    transition: transform 0.9s var(--ease-out), box-shadow 0.9s var(--ease-out) !important;
+    transition: transform 0.9s var(--ease-out), box-shadow 0.9s var(--ease-out);
     will-change: transform, box-shadow;
     display: flex;
     flex-direction: column;
@@ -220,7 +251,7 @@ body {
     transform: scale(1.06);
 }
 
-/* --- CONFIGURACIÓN ESPECÍFICA DE LAS DOS IMÁGENES EN EL CALIFORNIA TRAIL --- */
+/* --- California Trail Double Layout --- */
 .trail-media.california-media {
     height: auto !important;
     display: flex;
@@ -382,7 +413,6 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     background: linear-gradient(to top, rgba(4, 19, 52, 0.95) 0%, rgba(4, 19, 52, 0) 100%);
-    color: var(--surface);
 }
 
 .track-card .track-content h3,
@@ -423,9 +453,7 @@ body {
 .track-card:hover h3 { transform: translateY(-4px); }
 .track-card:hover .explore-btn { color: var(--surface); transform: translateY(-2px); }
 
-/* ==========================================================================
-   Wagon Adventures — Ticket-Stub Card Aesthetic
-   ========================================================================== */
+/* --- Wagon Adventures --- */
 .wagon-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -520,12 +548,6 @@ body {
     border-radius: 30px;
 }
 
-.wagon-duration-badge svg {
-    width: 14px;
-    height: 14px;
-    flex-shrink: 0;
-}
-
 .wagon-body {
     padding: 2rem 2rem 1.6rem;
     display: flex;
@@ -608,9 +630,7 @@ body {
     color: var(--accent);
 }
 
-/* ==========================================================================
-   Curated Pathways — Timeline Capsule Card Aesthetic
-   ========================================================================== */
+/* --- Curated Pathways --- */
 .pathway-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -736,19 +756,19 @@ body {
     color: var(--surface);
 }
 
-
-
-@media (max-width: 600px) {
-    .wagon-body { padding: 1.6rem 1.5rem 1.4rem; }
-    .wagon-ticket-divider { margin: 0 -1.5rem 1.2rem; }
-    .pathway-card { height: 400px; }
-    .pathway-content { padding: 2rem 1.6rem; }
+/* 🎯 CONTROL DE ENCUADRE DE IMAGEN GLOBAL (AI & CSS Fix: Forzar fondo inferior) */
+.pathway-card-img, 
+.storefront-card img,
+.card-image-wrapper img,
+#directoryGrid .card-img,
+.route-stop-banner img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; 
+    object-position: bottom !important; 
 }
 
-
-/* ==========================================================================
-   Modal Variant — Quick Stats Row (used by several tour modals)
-   ========================================================================== */
+/* --- Modal Stats Row --- */
 .modal-stats-row {
     display: flex;
     gap: 1rem;
@@ -784,7 +804,7 @@ body {
     margin-top: 0.4rem;
 }
 
-/* --- Variant: Quick Loop — Compact Chapter Grid --- */
+/* --- Compact Chapter Grid --- */
 .compact-chapter-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -828,7 +848,7 @@ body {
     line-height: 1.65;
 }
 
-/* --- Variant: Trail Waypoint Progress --- */
+/* --- Trail Waypoint Progress --- */
 .trail-progress {
     display: flex;
     align-items: flex-start;
@@ -887,7 +907,7 @@ body {
     padding: 0 0.5rem;
 }
 
-/* --- Variant: Premium Journey Dossier --- */
+/* --- Premium Journey Dossier --- */
 .journey-stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -938,13 +958,6 @@ body {
     gap: 0.6rem;
 }
 
-.journey-panel-title svg {
-    width: 20px;
-    height: 20px;
-    color: var(--gold);
-    flex-shrink: 0;
-}
-
 .journey-panel p {
     font-size: 0.92rem;
     color: var(--muted);
@@ -952,7 +965,7 @@ body {
     text-align: justify;
 }
 
-/* --- Variant: Dinner Menu Card --- */
+/* --- Dinner Menu Card --- */
 .menu-notice-box {
     display: flex;
     align-items: center;
@@ -964,13 +977,6 @@ body {
     margin: 1.5rem 0 2rem;
     font-size: 0.85rem;
     color: var(--muted);
-}
-
-.menu-notice-box svg {
-    width: 22px;
-    height: 22px;
-    color: var(--gold);
-    flex-shrink: 0;
 }
 
 .menu-price-table {
@@ -1029,7 +1035,7 @@ body {
     text-align: justify;
 }
 
-/* --- Variant: Architecture Gallery Grid (Track modal) --- */
+/* --- Architecture Gallery Grid --- */
 .gallery-modal-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1046,11 +1052,7 @@ body {
 }
 
 .gallery-modal-item:hover { transform: translateY(-4px); }
-
-.gallery-modal-photo {
-    height: 170px;
-    overflow: hidden;
-}
+.gallery-modal-photo { height: 170px; overflow: hidden; }
 
 .gallery-modal-photo img {
     width: 100%;
@@ -1058,10 +1060,7 @@ body {
     object-fit: cover;
 }
 
-.gallery-modal-caption {
-    padding: 1.1rem 1.2rem 1.3rem;
-}
-
+.gallery-modal-caption { padding: 1.1rem 1.2rem 1.3rem; }
 .gallery-modal-caption .gm-number {
     color: var(--gold);
     font-family: var(--font-serif);
@@ -1084,7 +1083,7 @@ body {
     margin-bottom: 0;
 }
 
-/* --- Unified Wagon Route Detail Rows (icon + text, used by ALL tour modals) --- */
+/* --- Detail Rows --- */
 .detail-row {
     display: flex;
     gap: 1.3rem;
@@ -1126,13 +1125,19 @@ body {
     text-align: justify;
 }
 
-/* --- Variant: Editorial Route Stop Cards (Curated Pathways modal) --- */
+/* --- Editorial Route Stop Cards --- */
 .route-stops-list {
     margin-top: 1.5rem;
     position: relative;
 }
 
-.route-stop-card:last-child { margin-bottom: 0; }
+.route-stop-card {
+    position: relative;
+    background: var(--surface);
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 30px rgba(4,19,52,0.05);
+}
 
 .route-stop-card::before {
     content: "";
@@ -1155,13 +1160,6 @@ body {
     position: relative;
     overflow: hidden;
     border-radius: 12px 12px 0 0; 
-}
-
-.route-stop-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;            
-    object-position: bottom;         
 }
 
 .route-stop-card:hover .route-stop-banner img {
@@ -1215,23 +1213,12 @@ body {
     margin-bottom: 0;
 }
 
-.route-stop-body {
-    padding: 1.4rem 1.6rem 1.6rem;
-}
-
+.route-stop-body { padding: 1.4rem 1.6rem 1.6rem; }
 .route-stop-body p {
     font-size: 0.9rem;
     color: var(--muted);
     line-height: 1.75;
     text-align: justify;
-}
-
-@media (max-width: 600px) {
-    .journey-stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .trail-progress { flex-direction: column; gap: 1.5rem; }
-    .trail-connector-line { display: none; }
-    .route-stop-banner { height: 190px; }
-    .route-stop-title-overlay h4 { font-size: 1.2rem; }
 }
 
 /* --- Directory Controls --- */
@@ -1290,8 +1277,6 @@ body {
     letter-spacing: 1px;
     cursor: pointer;
     border-radius: 30px;
-    position: relative;
-    overflow: hidden;
     transition: all 0.5s var(--ease-out);
 }
 
@@ -1324,9 +1309,7 @@ body {
     will-change: transform, box-shadow;
 }
 
-.dir-card.hidden {
-    display: none !important;
-}
+.dir-card.hidden { display: none !important; }
 
 .dir-card:hover {
     transform: translateY(-6px);
@@ -1342,17 +1325,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s var(--ease-out);
-}
-
-.dir-card:hover .card-img {
-    transform: scale(1.05);
 }
 
 .card-body {
@@ -1427,7 +1399,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: color 0.3s ease;
 }
 
 .card-info-btn .arrow {
@@ -1435,13 +1406,8 @@ body {
     transition: transform 0.3s var(--ease-out);
 }
 
-.dir-card:hover .card-info-btn {
-    color: var(--gold);
-}
-
-.dir-card:hover .card-info-btn .arrow {
-    transform: translateX(6px);
-}
+.dir-card:hover .card-info-btn { color: var(--gold); }
+.dir-card:hover .card-info-btn .arrow { transform: translateX(6px); }
 
 /* --- Sliding Drawer Modal & Overlay --- */
 #modalOverlay, .modal-overlay {
@@ -1456,7 +1422,6 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.5s var(--ease-in-out), visibility 0.5s;
-    padding: 0;
 }
 
 #modalOverlay.active, .modal-overlay.active {
@@ -1503,10 +1468,7 @@ body {
 }
 
 /* --- Modal Content Layout --- */
-.modal-content-wrap {
-    padding: 6rem 4rem;
-}
-
+.modal-content-wrap { padding: 6rem 4rem; }
 .modal-meta-tag {
     display: inline-block;
     background: var(--gold) !important;
@@ -1518,7 +1480,6 @@ body {
     margin-bottom: 1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    border: none;
 }
 
 .modal-content-wrap h2 {
@@ -1565,10 +1526,7 @@ body {
     font-size: 1rem;
 }
 
-.modal-bullet-list > li > strong,
-.modal-bullet-list > li > span > strong {
-    color: var(--accent) !important;
-}
+.modal-bullet-list > li > strong { color: var(--accent) !important; }
 
 /* --- Staggered Bullet List Delays --- */
 .modal-bullet-list li:nth-child(1) { animation-delay: 0.1s; }
@@ -1607,13 +1565,8 @@ body {
     animation: none;
 }
 
-.modal-bullet-list .timeline-nested-list li::marker {
-    color: var(--gold) !important;
-}
-
-.modal-bullet-list .timeline-nested-list li strong {
-    color: var(--gold) !important;
-}
+.modal-bullet-list .timeline-nested-list li::marker { color: var(--gold) !important; }
+.modal-bullet-list .timeline-nested-list li strong { color: var(--gold) !important; }
 
 /* --- Modal Timeline System --- */
 .timeline-item-nodes {
@@ -1666,49 +1619,7 @@ body {
     transform: translateY(0);
 }
 
-footer {
-    background-color: var(--accent);
-    color: #a3b1cc;
-    text-align: center;
-    padding: 4rem 2rem;
-    font-size: 0.9rem;
-    border-top: 1px solid rgba(181, 137, 19, 0.3);
-}
-
-footer strong { color: var(--gold); }
-
-@keyframes fadeUpIn {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideRightIn {
-    to { opacity: 1; transform: translateX(0); }
-}
-
-/* --- Mobile Navigation Triggers --- */
-.mobile-hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 6px;
-    z-index: 1001;
-    padding: 8px;
-}
-
-.mobile-hamburger span {
-    display: block;
-    width: 26px;
-    height: 2px;
-    background-color: var(--surface);
-    transition: all 0.3s var(--ease-out);
-}
-
-.main-nav.nav-scrolled .mobile-hamburger span {
-    background-color: var(--bg);
-}
-
+/* --- Mobile Navigation Menu --- */
 .mobile-fullscreen-menu {
     position: fixed;
     top: 0; left: -100%; width: 100%; height: 100vh;
@@ -1720,10 +1631,7 @@ footer strong { color: var(--gold); }
     padding: 1.5rem 2rem;
 }
 
-.mobile-fullscreen-menu.popup-active {
-    left: 0;
-}
-
+.mobile-fullscreen-menu.popup-active { left: 0; }
 .mobile-menu-header {
     display: flex;
     align-items: center;
@@ -1739,8 +1647,6 @@ footer strong { color: var(--gold); }
     color: var(--accent);
     cursor: pointer;
     font-weight: 300;
-    line-height: 1;
-    padding: 0;
 }
 
 .menu-brand-center {
@@ -1748,7 +1654,6 @@ footer strong { color: var(--gold); }
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--accent);
-    letter-spacing: 0.5px;
 }
 
 .mobile-menu-content {
@@ -1770,8 +1675,6 @@ footer strong { color: var(--gold); }
     font-weight: 600;
     color: var(--accent);
     text-decoration: none;
-    letter-spacing: -0.5px;
-    line-height: 1.1;
 }
 
 .menu-divider {
@@ -1796,13 +1699,9 @@ footer strong { color: var(--gold); }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0;
 }
 
-.mobile-secondary-links .arrow {
-    font-size: 1.2rem;
-    color: var(--gold);
-}
+.mobile-secondary-links .arrow { color: var(--gold); }
 
 /* --- Expandable Trail Details --- */
 .trail-toggle-btn {
@@ -1820,7 +1719,6 @@ footer strong { color: var(--gold); }
     font-weight: 600;
     color: var(--accent);
     cursor: pointer;
-    transition: color 0.3s ease;
 }
 
 .trail-toggle-btn:hover { color: var(--gold); }
@@ -1833,19 +1731,19 @@ footer strong { color: var(--gold); }
 .trail-details {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s linear;
+    transition: max-height 0.6s var(--ease-out), opacity 0.4s linear;
     opacity: 0;
 }
 
 .trail-details.active {
-    max-height: 700px; 
+    max-height: 900px; 
     opacity: 1;
 }
 
 .trail-details.active .modal-bullet-list li {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    animation: none !important;
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
 }
 
 .timeline-node-image-wrapper {
@@ -1890,21 +1788,42 @@ footer strong { color: var(--gold); }
     margin-bottom: 1.5rem;
 }
 
+/* --- Global Footer & AI Integrity Notice --- */
+footer {
+    background-color: var(--accent);
+    color: #a3b1cc;
+    text-align: center;
+    padding: 4rem 2rem;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(181, 137, 19, 0.3);
+}
+
+footer strong { color: var(--gold); }
+
+.ai-notice {
+    font-size: 0.78rem;
+    color: #a3b1cc;
+    opacity: 0.75;
+    margin-top: 0.8rem;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
 /* --- Scrollbars Webkit --- */
 #modalContainer::-webkit-scrollbar { width: 8px; }
 #modalContainer::-webkit-scrollbar-track { background: #eee; }
 #modalContainer::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
-/* --- Media Queries --- */
+/* ==========================================================================
+   Responsive Architecture Viewports (Media Queries)
+   ========================================================================== */
 @media (min-width: 992px) {
     .trails-grid .trail-media { height: 520px; border-radius: 6px; }
     .trails-grid .trail-card:nth-child(1) .trail-media { height: 560px; }
-    
-    /* Anulamos la altura estricta previa solo para la tarjeta de California que usa dos imágenes */
     .trails-grid .trail-card .trail-media.california-media { height: auto !important; }
-    
-    .trail-media img { object-fit: cover; object-position: center; }
-    .trail-caption-overlay { max-width: 85%; padding: 0.8rem 1.2rem; }
 }
 
 @media (max-width: 992px) {
@@ -1923,17 +1842,15 @@ footer strong { color: var(--gold); }
     .modal-bullet-list li { font-size: 0.95rem; line-height: 1.7; }
     #modalContainer, .modal-container { width: 100%; max-height: 100vh; border-radius: 0; transform: none; }
     .filter-bar { flex-direction: column; align-items: stretch; }
-    .filter-btn { text-align: center; }
 }
 
-.ai-notice {
-    font-size: 0.78rem;
-    color: #a3b1cc;
-    opacity: 0.75;
-    margin-top: 0.8rem;
-    letter-spacing: 0.3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
+@media (max-width: 600px) {
+    .wagon-body { padding: 1.6rem 1.5rem 1.4rem; }
+    .wagon-ticket-divider { margin: 0 -1.5rem 1.2rem; }
+    .pathway-card { height: 400px; }
+    .pathway-content { padding: 2rem 1.6rem; }
+    .journey-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .trail-progress { flex-direction: column; gap: 1.5rem; }
+    .trail-connector-line { display: none; }
+    .route-stop-banner { height: 190px; }
 }
