@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Independence Square Architecture Project — Complete Stylesheet
-   ========================================================================== */
-
 :root {
     --bg: #f8f5ef;
     --surface: #ffffff;
@@ -119,12 +115,8 @@ body {
     background-color: var(--bg);
 }
 
-/* ==========================================================================
-   🎯 DEFINITIVE FULLSCREEN MENU STYLE — FINAL POLISH (BOCETO 3)
-   ========================================================================== */
-/* ==========================================================
-   MOBILE MENU
-   ========================================================== */
+
+/* --- Mobile Fullscreen Menu --- */
 
 .mobile-hamburger{
     display:none;
@@ -152,9 +144,7 @@ body {
     background:var(--bg);
 }
 
-/* =======================
-   FULLSCREEN MENU
-======================= */
+/* --- Fullscreen Mobile Menu --- */
 
 .mobile-fullscreen-menu{
 
@@ -185,9 +175,6 @@ body {
 
 }
 
-/* =======================
-   HEADER
-======================= */
 
 .mobile-menu-header{
 
@@ -231,10 +218,6 @@ body {
 
 }
 
-/* =======================
-   CONTENT
-======================= */
-
 .mobile-menu-content{
 
     display:flex;
@@ -244,10 +227,6 @@ body {
     flex:1;
 
 }
-
-/* =======================
-   MAIN LINKS
-======================= */
 
 .mobile-fullscreen-links{
 
@@ -293,10 +272,6 @@ body {
 
 }
 
-/* =======================
-   DIVIDER
-======================= */
-
 .menu-divider{
 
     border:none;
@@ -306,10 +281,6 @@ body {
     margin:40px 0 22px;
 
 }
-
-/* =======================
-   BOTTOM LINK
-======================= */
 
 .mobile-secondary-links{
 
@@ -807,32 +778,31 @@ body {
     left: 0.8rem;
     z-index: 3;
     
-    /* Configuración para mantener todo alineado en una línea */
+    
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    white-space: nowrap; /* Evita que el texto salte a otra línea */
+    white-space: nowrap;
     
-    /* Tipografía súper pequeña y estilizada */
+    
     color: #ffffff;
-    font-size: 0.65rem; /* Tamaño de letra extra reducido */
+    font-size: 0.65rem; 
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     
-    /* Fondo limpio y muy sutil (cristal) */
+    
     background: rgba(4, 19, 52, 0.65);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     
-    /* Detalles de tamaño y bordes */
+    
     padding: 0.25rem 0.55rem;
-    border-radius: 4px; /* Bordes ligeramente redondeados y modernos */
+    border-radius: 4px; 
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Encoger también el icono de reloj para que vaya a juego */
 .wagon-duration-badge svg {
     width: 11px !important;
     height: 11px !important;
@@ -1047,7 +1017,6 @@ body {
     color: var(--surface);
 }
 
-/* 🎯 CONTROL DE ENCUADRE DE IMAGEN GLOBAL (AI Visual Fix) */
 .pathway-card-img, 
 .storefront-card img,
 .card-image-wrapper img,
@@ -1842,7 +1811,7 @@ body {
 .modal-bullet-list li:nth-child(4) { animation-delay: 0.34s; }
 .modal-bullet-list li:nth-child(5) { animation-delay: 0.42s; }
 
-/* --- Sublista Cronológica --- */
+/* --- Cronologic Sublist --- */
 .timeline-header-title {
     color: var(--accent);
     display: block;
@@ -2040,9 +2009,8 @@ footer strong { color: var(--gold); }
 #modalContainer::-webkit-scrollbar-track { background: #eee; }
 #modalContainer::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
-/* ==========================================================================
-   Responsive Architecture Viewports (Media Queries)
-   ========================================================================== */
+/* --- Responsive Media Queries --- */
+
 @media (min-width: 992px) {
     .trails-grid .trail-media { height: 520px; border-radius: 6px; }
     .trails-grid .trail-card:nth-child(1) .trail-media { height: 560px; }
