@@ -2026,8 +2026,8 @@ footer strong { color: var(--gold); }
 }
 
 @media (max-width: 768px) {
-    #directoryGrid, .directory-grid { padding: 1.5rem; justify-items: center; }
-    .dir-card { max-width: 400px; width: 100%; }
+    #directoryGrid, .directory-grid { padding: 1.5rem; align-items: center; display:flex; flex-direction: column;}
+    .dir-card { max-width: 100%; width: 90%; margin: 0 auto 1.5rem auto; }
     .modal-content-wrap { padding: 4rem 1.5rem; }
     .modal-content-wrap h2 { font-size: 1.8rem; }
     .modal-bullet-list { padding-left: 1.5rem; }
