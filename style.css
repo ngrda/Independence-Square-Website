@@ -87,6 +87,91 @@ body {
     color: var(--gold) !important;
 }
 
+/* --- Language Switcher --- */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 2rem;
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid rgba(248, 245, 239, 0.4);
+    color: var(--surface);
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.35rem 0.7rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out);
+}
+
+.main-nav.nav-scrolled .lang-btn {
+    color: var(--bg);
+    border-color: rgba(4, 19, 52, 0.3);
+}
+
+.lang-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold) !important;
+}
+
+.lang-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--accent) !important;
+}
+
+.lang-divider {
+    color: rgba(248, 245, 239, 0.4);
+    font-size: 0.75rem;
+}
+
+.main-nav.nav-scrolled .lang-divider {
+    color: rgba(4, 19, 52, 0.3);
+}
+
+.lang-switch-mobile {
+    justify-content: center;
+    margin: 1.5rem 0 0;
+}
+
+.lang-switch-mobile .lang-btn {
+    border-color: rgba(4, 19, 52, 0.25);
+    color: var(--accent);
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+}
+
+@media (max-width: 900px) {
+    .lang-switch:not(.lang-switch-mobile) { display: none !important; }
+}
+
+/* Hide Google Translate's default banner, iframe and highlighted-text styling
+   so the page keeps its own design regardless of which language is active */
+.goog-te-banner-frame,
+.skiptranslate > iframe {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+    position: static !important;
+}
+
+#google_translate_element {
+    display: none !important;
+}
+
+.goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+}
+
 /* --- Navigation Hamburger Baseline --- */
 .mobile-hamburger {
     display: none;
