@@ -705,6 +705,7 @@ let currentCategory = "all";
  */
 document.addEventListener("DOMContentLoaded", () => {
     initNavbar();
+    syncMetricsData();
     initScrollReveal();
     initMetricsObserver();
     // Initially renders directory with data alphanumeric-sorted by street name/number
@@ -713,6 +714,18 @@ document.addEventListener("DOMContentLoaded", () => {
     initRoutes();
     initSearchLogic();
 });
+
+/**
+ * Keeps the "Historic Sites" metric in the hero stats bar in sync with the
+ * actual number of entries in buildingsDatabase, so it never has to be
+ * updated by hand when buildings are added or removed.
+ */
+function syncMetricsData() {
+    const historicSitesNumber = document.getElementById("historicSitesMetric");
+    if (historicSitesNumber) {
+        historicSitesNumber.setAttribute("data-target", buildingsDatabase.length);
+    }
+}
 
 /**
  * Monitors page scrolling behavior to seamlessly alter header styling.
@@ -832,7 +845,7 @@ function renderDirectory(data) {
             </div>
             <div class="card-body">
                 <span class="dir-category">${item.category}</span>
-                <h3 class="card-title">${item.title}</h3>
+                <h3 class="card-title"><span class="notranslate" translate="no">${item.title}</span></h3>
                 <div class="card-address">📍 ${item.address}</div>
                 <p class="card-desc">${item.shortDesc}</p>
                 <button class="card-info-btn" onclick="openModal('${item.id}'); event.stopPropagation();">
@@ -1064,7 +1077,7 @@ function openModal(id) {
     wrapper.innerHTML = `
         <div class="modal-content-wrap">
             <span class="modal-meta-tag">${displayTag}</span>
-            <h2>${item.title}</h2>
+            <h2><span class="notranslate" translate="no">${item.title}</span></h2>
             <span class="dir-address">📍 ${item.address}</span>
             <div class="modal-body-stacked">
                 <ul class="modal-bullet-list">
@@ -1121,7 +1134,7 @@ function launchTrack(trackKey) {
                     <img src="${item.photo}" alt="${item.title}">
                     <div class="route-stop-number-badge">0${index + 1}</div>
                     <div class="route-stop-title-overlay">
-                        <h4>${item.title}</h4>
+                        <h4><span class="notranslate" translate="no">${item.title}</span></h4>
                         <span class="dir-address">📍 ${item.address}</span>
                     </div>
                 </div>
